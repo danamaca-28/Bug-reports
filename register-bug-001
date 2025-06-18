@@ -1,0 +1,41 @@
+ # 🐞 Bug Report: Valid Password Rejected During Account Registration
+
+**Bug ID:** BUG-001  
+**Date Reported:** June 18, 2025  
+**Reported by:** Dana Maca  
+**Priority:** High  
+**Severity:** Critical  
+**Environment:**  
+- Browser: Safari 
+- OS: macOS Ventura  
+- URL: https://demoqa.com/register  
+
+---
+
+## 🧪 Steps to Reproduce:
+1. Navigate to https://demoqa.com/register  
+2. Fill in valid details for First Name, Last Name, and Email  
+3. Enter a strong password that meets the following criteria:
+   - Minimum 8 characters  
+   - At least 1 uppercase letter  
+   - At least 1 lowercase letter  
+   - At least 1 number  
+   - At least 1 special character  
+   _Example used: `Test@1234`_  
+4. Click on **Register** button
+
+---
+
+## 🤕 Actual Result:
+An error message is displayed:  
+**"Passwords must have at least one non alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer."**
+
+Even though the password meets all listed criteria.
+
+---
+
+## ✅ Expected Result:
+The account should be created successfully if the password is valid and meets all stated requirements.
+
+
+
