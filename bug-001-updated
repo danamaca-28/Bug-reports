@@ -1,0 +1,21 @@
+ Steps to Reproduce (Updated):
+
+Open Safari browser (version tested: Safari vX.X – pune versiunea exactă dacă o știi)
+Go to: https://demoqa.com/register
+Complete all required fields
+Enter a valid password that includes:
+1 uppercase, 1 lowercase, 1 digit, 1 special character, and at least 8 characters total
+Example: Test@1234
+Click Register
+🤕 Actual Result:
+
+Error is shown in Safari only:
+
+"Passwords must have at least one non alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer."
+✅ In Chrome (and potentially other browsers), the same password works and account is created successfully.
+
+🧩 Additional Notes:
+
+Likely caused by browser-specific JavaScript validation logic
+Could be due to differences in how Safari interprets regex, HTML5 validation, or how the form is submitted
+Needs testing in Firefox/Edge for confirmation
