@@ -1,6 +1,6 @@
  Steps to Reproduce (Updated):
 
-Open Safari browser (version tested: Safari vX.X – pune versiunea exactă dacă o știi)
+Open Safari browser (version tested: Safari 
 Go to: https://demoqa.com/register
 Complete all required fields
 Enter a valid password that includes:
@@ -19,3 +19,4 @@ Error is shown in Safari only:
 Likely caused by browser-specific JavaScript validation logic
 Could be due to differences in how Safari interprets regex, HTML5 validation, or how the form is submitted
 Needs testing in Firefox/Edge for confirmation
+******* AFTER USER REGISTER ON CHROME THE USER CAN LOGIN WITH THE CREDENTIALS ON SAFARI- so the problem seems to be only on registration on Safari 
