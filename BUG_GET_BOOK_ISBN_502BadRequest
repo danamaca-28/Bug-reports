@@ -1,0 +1,30 @@
+🐞 Bug Report – 502 Bad Gateway Error on ISBN Request in Postman
+
+ID: BUG-004
+Title: GET /Book?ISBN={isbn} returns 502 Bad Gateway in Postman but 200 OK in Insomnia
+Date: 2025-06-19
+Reporter: Maca Dana
+
+Description
+When sending a request to the API endpoint with a specific ISBN using Postman, the server responds with a 502 Bad Gateway error. The same request with the same ISBN sent from Insomnia returns a successful 200 OK response.
+
+Steps to Reproduce
+Open Postman and create a GET /Book?ISBN={{isbn}} request.
+Set the variable isbn with a valid value (e.g., 9781234567890).
+Send the request and observe the 502 Bad Gateway response.
+Open Insomnia and send the same request with the same ISBN.
+Observe that the response is 200 OK.
+Expected Result
+A 200 OK response with the book details for the specified ISBN, regardless of the API client used.
+
+Actual Result
+Postman sends an incorrectly formatted URL (e.g., isbn=9781234567890=null), causing the server to return a 502 Bad Gateway error.
+
+Investigation
+It was found that in Postman, the isbn variable is either not set correctly or is concatenated incorrectly in the URL.
+In Insomnia, the parameter is sent correctly without the extra =null value.
+The issue may be caused by an uninitialized or empty variable or incorrect URL construction in Postman.
+Suggested Fix
+Correct the way the isbn variable is set in Postman.
+Validate variables before sending the request.
+Add error handling in the Pre-request Script to prevent sending requests with unset or invalid variables.
