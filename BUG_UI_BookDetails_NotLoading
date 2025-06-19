@@ -1,0 +1,49 @@
+# ❌ Bug Report: Book Details Not Displayed on Click
+
+**ID:** BUG-UI-001  
+**Module:** Book Store – Book Details View  
+**Severity:** Medium  
+**Status:** Open  
+**Date Reported:** 2025-06-18  
+**Environment:**  
+- OS: Windows/macOS  
+- Browsers: Chrome, Safari  
+- URL: `https://demoqa.com/books?book=9781449325862`
+
+---
+
+## 🔥 Description:
+When a user clicks on a book title from the book list, they are redirected to a book detail page. However, the detail page is blank – no information is rendered.
+
+---
+
+## 🧪 Steps to Reproduce:
+1. Open the Book Store page: https://demoqa.com/books
+2. Click on any book (e.g., “Git Pocket Guide”)
+3. The app navigates to a page like `...?book=9781449325862`
+4. Observe that the page content is empty
+
+---
+
+## 😵 Actual Result:
+- Page loads with no visible book information
+- Possibly due to JavaScript or API handling error
+
+## ✅ Expected Result:
+- Page should display:
+  - Title
+  - Author
+  - Description
+  - ISBN, Pages, Publisher, etc.
+
+---
+
+## 🔍 Technical Clue:
+- API `GET /Book?ISBN=9781449325862` tested separately and returns valid JSON
+- Browser console may show `TypeError` or fetch error in JavaScript
+
+---
+
+## 💡 Recommendation:
+Frontend should correctly parse `book` from URL and call `GET /Book?ISBN=...`, then render the response.
+
