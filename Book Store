@@ -1,0 +1,34 @@
+# ❌ Bug Report: Book Details Not Displayed
+
+**ID:** BUG-UI-002 
+**Module:** Book Store – Book Details  
+**Severity:** Medium  
+**Environment:**  
+- Browser: Chrome/Safari  
+- URL: https://demoqa.com/books?book=9781449325862  
+
+---
+
+## 🔥 Description:
+When clicking on a book from the list on the Book Store page, the application redirects to a details page using the book's ISBN. However, the resulting page is blank, and no book details are shown.
+
+---
+
+## 🧪 Steps to Reproduce:
+1. Open https://demoqa.com/books
+2. Click on any book title (e.g., "Git Pocket Guide")
+3. Observe that the new page shows no content
+
+---
+
+## 😵 Actual Result:
+- Page loads with empty body
+- No title, author, or description displayed
+
+## ✅ Expected Result:
+- Page displays full details of the selected book: title, author, description, ISBN, etc.
+
+---
+
+## 📸 Screenshot / Console (optional):
+- https://demoqa.com/books?book=9781449325862
