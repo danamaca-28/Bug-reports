@@ -1,0 +1,39 @@
+# ❌ Bug Report: Cannot add any book to user profile
+
+**ID:** BUG-UI-002  
+**Module:** Book Store – Profile Integration  
+**Severity:** Critical (blocker)  
+**Status:** Open  
+**Date Reported:** 2025-06-18  
+**Environment:**  
+- OS: Windows/macOS  
+- Browsers: Safari,Chrome 
+- URL: https://demoqa.com/books
+
+---
+
+## 🔥 Description:
+The user cannot add any book to their profile because **book details pages fail to load**, and there's no option to select or add a book.
+
+---
+
+## 🧪 Steps to Reproduce:
+1. Login with a valid user
+2. Navigate to Book Store (`/books`)
+3. Click any book title to view details
+4. Observe that book detail page is blank
+5. Try to add book to profile – no option appears
+
+---
+
+## 😵 Actual Result:
+- Book detail page is empty
+- Add-to-profile action is not available or functional
+
+## ✅ Expected Result:
+- Book detail page loads
+- User can click "Add To Your Collection" to add book to their profile
+
+---
+
+
