@@ -1,0 +1,70 @@
+❌ Bug Report: API sequence for user creation + book addition returns 502 Bad Gateway
+ID: BUG-API-001
+Module: Backend API / BookStore Service
+Severity: Critical
+Priority: High
+Status: Open
+Date Reported: 2025-06-21
+Environment:
+
+OS: macOS Ventura / Ubuntu 22.04
+
+Browsers: Safari/ Chrome 
+
+Endpoint: https://demoqa.com/BookStore/v1/Books
+
+🔥 Description:
+When attempting to create a new user, generate a token, and add a book using the exposed POST APIs of the BookStore module, the final request (POST /Books) results in a 502 Bad Gateway HTML response.
+
+This error originates from the backend (nginx), indicating either an internal upstream service failure or misconfigured routing.
+
+🧪 Steps to Reproduce:
+POST /Account/v1/User
+→ Create a new user successfully
+✅ Response: 201 Created
+
+POST /Account/v1/GenerateToken
+→ Use correct credentials
+✅ Response: 200 OK
+✅ Token received
+
+POST /BookStore/v1/Books
+→ Use received token and authorization headers
+❌ Response: 502 Bad Gateway
+❌ Body contains raw HTML:
+
+html
+Copy
+Edit
+<h1>502 Bad Gateway</h1>
+<center>nginx/1.17.10 (Ubuntu)</center>
+😵 Actual Result:
+API request to add a book fails with 502 Bad Gateway
+
+HTML response body is returned instead of JSON
+
+Breaks normal app flow (e.g., adding books to user profile)
+
+✅ Expected Result:
+POST /Books should respond with:
+
+200 OK or 201 Created
+
+JSON payload confirming book addition to user’s profile
+
+🔍 Technical Clues:
+Upstream service or backend API may be unavailable or misrouted
+
+nginx forwarding may be failing to reach actual handler for /Books
+
+Possible mismatch in backend routing logic, deployment issue, or missing service behind nginx
+
+💡 Recommendation:
+Check backend logs for /Books route
+
+Validate if BookStore microservice is reachable behind nginx
+
+Add fallback or graceful error response if service is unavailable
+
+Ensure load balancer/reverse proxy configuration is valid and active
+
