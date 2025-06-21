@@ -1,0 +1,61 @@
+# ❌ Bug Report: Profile section does not load or behave consistently across browsers
+
+**ID:** BUG-UI-003  
+**Module:** User Profile / BookStore UI  
+**Severity:** Major  
+**Priority:** High  
+**Status:** Open  
+**Date Reported:** 2025-06-18  
+**Environment:**
+- ✅ Safari (Profile page partially loads)
+- ❌ Chrome (Profile page appears blank)
+
+---
+
+## 🔥 Description:
+The "Profile" section of the DemoQA BookStore behaves differently depending on the browser.  
+In Chrome, the page is blank. In Safari, the profile page loads a table with search input, but no books are shown unless the backend interaction succeeds.
+
+---
+
+## 🧪 Steps to Reproduce:
+
+### 🔹 On Chrome:
+1. Login to DemoQA
+2. Click on "Profile"
+3. Observe: Blank page, no content rendered
+
+### 🔹 On Safari:
+1. Login to DemoQA
+2. Click on "Profile"
+3. Observe:
+   - A table is visible with a search input
+   - Presumably shows added books, but likely empty if none added
+
+---
+
+## 😵 Actual Result:
+- Chrome: Entire Profile page blank
+- Safari: Table structure shows, but unclear if data populates correctly
+
+## ✅ Expected Result (Both browsers):
+- Profile page should render correctly
+- Show table with:
+  - User’s added books
+  - Search field
+  - Action buttons (Delete, Log Out)
+
+---
+
+## 🔍 Technical Clues:
+- Missing or broken frontend logic likely tied to async API responses (e.g., book list not loaded)
+- Chrome may fail silently on rendering due to JavaScript or CORS-related issue
+- Safari partially renders due to different JS/CSS handling
+
+---
+
+## 💡 Recommendation:
+- Debug console logs in both browsers
+- Ensure error handling is consistent in case of missing data
+- Normalize rendering of UI components across browsers
+
