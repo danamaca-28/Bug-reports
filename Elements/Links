@@ -1,0 +1,31 @@
+Bug Report
+Titlu:
+Inconsistență status cod HTTP la endpoint-ul https://demoqa.com/not-found
+
+Descriere:
+Endpoint-ul https://demoqa.com/not-found returnează un răspuns HTTP cu status 200 OK, în timp ce UI-ul aplicației afișează mesajul „Link has responded with status 404 and status text Not Found.” Aceasta creează o discrepanță între comportamentul backend și cel afișat utilizatorului.
+
+Pași pentru reproducere:
+
+Accesează pagina „Links” din secțiunea Elements de pe demoqa.com
+
+Click pe linkul „Not Found”
+
+Observă mesajul afișat pe ecran: „Link has responded with status 404 and status text Not Found.”
+
+În Postman sau prin orice client HTTP, trimite un GET request către https://demoqa.com/not-found
+
+Observă că răspunsul HTTP primit are status 200 OK (nu 404)
+
+Rezultat așteptat:
+Endpoint-ul https://demoqa.com/not-found ar trebui să returneze un răspuns cu status HTTP 404 Not Found, în concordanță cu mesajul afișat în UI.
+
+Rezultat actual:
+Endpoint-ul returnează un răspuns cu status HTTP 200 OK, ceea ce contrazice mesajul din UI.
+
+Impact:
+Testele automate bazate pe API vor da rezultate false pozitive pentru acest endpoint, iar utilizatorii pot fi induși în eroare de mesajul afișat.
+
+Sugestie:
+Backend-ul trebuie ajustat astfel încât să returneze statusul HTTP corect (404) pentru acest endpoint.
+
