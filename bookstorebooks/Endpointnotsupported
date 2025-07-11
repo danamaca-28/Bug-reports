@@ -1,0 +1,24 @@
+Title:
+PUT request to /BookStore/v1/Books endpoint returns "Cannot PUT" error
+
+Description:
+When attempting to update a book in the user’s Book Store collection via PUT request to https://demoqa.com/BookStore/v1/Books, the server responds with an error page stating Cannot PUT /BookStore/v1/Books. This indicates that the PUT method is not supported or the endpoint is not implemented for this operation.
+
+Steps to Reproduce:
+
+Create a user with POST /Account/v1/User.
+Generate a token with POST /Account/v1/GenerateToken.
+Add a book with POST /BookStore/v1/Books.
+Attempt to update the book by sending a PUT request to /BookStore/v1/Books with proper headers and payload.
+Actual Result:
+
+Response status: 404 or an error page with message Cannot PUT /BookStore/v1/Books.
+The book cannot be updated using PUT.
+Expected Result:
+
+The API should support updating book information via PUT or return a meaningful error message if not supported.
+Alternatively, documentation should clarify the correct method for updating books.
+Additional Notes:
+
+UserId validation errors were also observed during the PUT attempts, indicating potential issues with payload structure or authorization.
+The POST method is supported for adding books, but update functionality appears missing or undocumented.
